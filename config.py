@@ -2,9 +2,9 @@
 # Import packages
 import os
 
-init_path = "plastic"
-im_path = os.path.sep.join([init_path, "images"])
-annots_path = os.path.sep.join([init_path, "annotations"])
+init_path = "/plastic"
+im_path = os.path.sep.join([init_path, "/images"])
+annots_path = os.path.sep.join([init_path, "/annotations"])
 
 init_output = "output"
 model_path = os.path.sep.join([init_output, "detector.h5"])

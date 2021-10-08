@@ -20,7 +20,7 @@ for csvPath in paths.list_files(config.annots_path, validExts=".csv"):
 
     for row in r:
         row = row.split(",")
-        (filename, startX, startY, endX, endY, label) = row
+        (filename, shape, startX, startY, endX, endY, label) = row
 
         imagePath = os.path.sep.join([config.im_path, label, filename])
         im = cv2.imread(imagePath)
@@ -47,7 +47,7 @@ im_paths = np.array(im_paths)
 lb = LabelBinarizer()
 lbls = lb.fit_transform(lbls)
 
-if len(lb.classes_) == 6:
+if len(lb.classes_) == 1:
     lbls = to_categorical(lbls)
 
 split = train_test_split(data, lbls, bound_boxes, im_paths, test_size=0.20, random_state=42)
